@@ -405,18 +405,20 @@ class ReplayMemory():
             penalties = np.abs(azimuths-azimuths[0]) + np.abs(elevations-elevations[0])
 
             model_id = data_.model_id
-            voxel_name = os.path.join('voxels', '{}/{}/model.binvox'.format(self.FLAGS.category, model_id))
+            #chenxi
+            voxel_dir = '../data/shapenet/ShapeNetVox32/'
+            voxel_name = os.path.join(voxel_dir, '{}/{}/model.binvox'.format(self.FLAGS.category, model_id))
             if self.FLAGS.category == '1111':
                 category_, model_id_ = model_id.split('/')
-                voxel_name = os.path.join('voxels', '{}/{}/model.binvox'.format(category_, model_id_))
+                voxel_name = os.path.join(voxel_dir, '{}/{}/model.binvox'.format(category_, model_id_))
                 
             voxel = self.read_vox(voxel_name)
             mvinputs.put_voxel(voxel, batch_idx = b_idx)
 
             #this is the only categ for which we have seg data
             if self.FLAGS.use_segs and self.FLAGS.category == '3333': 
-                seg1_name = os.path.join('voxels', '{}/{}/obj1.binvox'.format(self.FLAGS.category, model_id))
-                seg2_name = os.path.join('voxels', '{}/{}/obj2.binvox'.format(self.FLAGS.category, model_id))
+                seg1_name = os.path.join(voxel_dir, '{}/{}/obj1.binvox'.format(self.FLAGS.category, model_id))
+                seg2_name = os.path.join(voxel_dir, '{}/{}/obj2.binvox'.format(self.FLAGS.category, model_id))
                 seg1 = self.read_vox(seg1_name)
                 seg2 = self.read_vox(seg2_name)
                 mvinputs.put_segs(seg1, seg2, batch_idx = b_idx)
