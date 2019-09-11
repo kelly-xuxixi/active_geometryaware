@@ -28,12 +28,18 @@ cat_name = {
     "3333": "mix4_all"
 }
 
-azim_all = np.linspace(0, 360, 37)
+# azim_all = np.linspace(0, 360, 37)
+# azim_all = azim_all[0:-1]
+# azim_for_init = np.linspace(0, 360, 9)
+# azim_for_init = np.asarray([0, 40, 90, 120, 180, 210, 270, 330])
+# elev_all = np.linspace(10, 60, 6)
+# elev_for_init = np.asarray([20, 40, 60])
+azim_all = np.linspace(0, 360, 9)
 azim_all = azim_all[0:-1]
-azim_for_init = np.linspace(0, 360, 9)
-azim_for_init = np.asarray([0, 40, 90, 120, 180, 210, 270, 330])
-elev_all = np.linspace(10, 60, 6)
-elev_for_init = np.asarray([20, 40, 60]) 
+azim_for_init = np.linspace(0, 360, 5)
+elev_all = np.linspace(-30, 30, 5)
+elev_for_init = np.asarray([-15, 0, 15])
+
 
 class ShapeNetEnv():
     def __init__(self, FLAGS):
@@ -44,8 +50,8 @@ class ShapeNetEnv():
         FLAGS.train_filename_prefix
         
         self.lists_dir = 'data/render_scripts/lists/{}_lists/'.format(self.category) 
-        # with open(self.lists_dir+'{}_idx.txt'.format(FLAGS.train_filename_prefix), 'r') as f:
-        with open('data/render_scripts/lists/02958343_debug.list', 'r') as f:
+        with open(self.lists_dir+'{}_idx.txt'.format(FLAGS.train_filename_prefix), 'r') as f:
+        # with open('data/render_scripts/lists/02958343_debug.list', 'r') as f:
             self.train_list = f.read().splitlines()
             if FLAGS.category == '1111':
                 np.random.shuffle(self.train_list)
@@ -139,27 +145,33 @@ class ShapeNetEnv():
         if self.FLAGS.category == '2222' or self.FLAGS.category == '3333':
             MIN_ELEV=np.float(20)
         DELTA = self.FLAGS.delta
+
+        # chenxi
+        DELTA_AZIM = 45
+        DELTA_ELE = 15
+        MAX_ELEV = np.float(30.0)
+        MIN_ELEV = np.float(-30.0)
         
         if action == 0:
-            self.current_azim = np.mod(self.current_azim + DELTA, 360)
+            self.current_azim = np.mod(self.current_azim + DELTA_AZIM, 360)
         elif action == 1:
-            self.current_azim = np.mod(self.current_azim - DELTA, 360)
+            self.current_azim = np.mod(self.current_azim - DELTA_AZIM, 360)
         elif action == 2:
-            self.current_elev = np.minimum(self.current_elev + DELTA, MAX_ELEV)
+            self.current_elev = np.minimum(self.current_elev + DELTA_ELE, MAX_ELEV)
         elif action == 3:
-            self.current_elev = np.maximum(self.current_elev - DELTA, MIN_ELEV)
+            self.current_elev = np.maximum(self.current_elev - DELTA_ELE, MIN_ELEV)
         elif action == 4:
-            self.current_azim = np.mod(self.current_azim + DELTA, 360)
-            self.current_elev = np.minimum(self.current_elev + DELTA, MAX_ELEV)
+            self.current_azim = np.mod(self.current_azim + DELTA_AZIM, 360)
+            self.current_elev = np.minimum(self.current_elev + DELTA_ELE, MAX_ELEV)
         elif action == 5:
-            self.current_azim = np.mod(self.current_azim + DELTA, 360)
-            self.current_elev = np.maximum(self.current_elev - DELTA, MIN_ELEV)
+            self.current_azim = np.mod(self.current_azim + DELTA_AZIM, 360)
+            self.current_elev = np.maximum(self.current_elev - DELTA_ELE, MIN_ELEV)
         elif action == 6:
-            self.current_azim = np.mod(self.current_azim - DELTA, 360)
-            self.current_elev = np.minimum(self.current_elev + DELTA, MAX_ELEV)
+            self.current_azim = np.mod(self.current_azim - DELTA_AZIM, 360)
+            self.current_elev = np.minimum(self.current_elev + DELTA_ELE, MAX_ELEV)
         elif action == 7:
-            self.current_azim = np.mod(self.current_azim - DELTA, 360)
-            self.current_elev = np.maximum(self.current_elev - DELTA, MIN_ELEV)
+            self.current_azim = np.mod(self.current_azim - DELTA_AZIM, 360)
+            self.current_elev = np.maximum(self.current_elev - DELTA_ELE, MIN_ELEV)
         #elif action == 8:
         #    pass ## camera don't move
         else:
