@@ -150,6 +150,7 @@ class ReplayMemory():
         return vox_model_zoom
 
     def read_png_to_uint8(self, azim, elev, model_id):
+        print(azim)
         img_name = 'RGB_{}_{}.png'.format(int(azim), int(elev))
         img_path = os.path.join(self.data_dir, model_id, img_name)
         if self.FLAGS.category == '1111':
