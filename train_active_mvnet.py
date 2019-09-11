@@ -30,12 +30,12 @@ sys.path.append(BASE_DIR)
 sys.path.append(os.path.join(BASE_DIR, 'models'))
 sys.path.append(os.path.join(BASE_DIR, 'utils'))
 sys.path.append(os.path.join(BASE_DIR, 'env_data'))
-import tf_util
+import utils.tf_util as tf_util
 
 #from visualizers import VisVox
-from active_mvnet import ActiveMVnet, SingleInput, MVInputs, batch_to_single_mvinput
-from shapenet_env import ShapeNetEnv
-from replay_memory import ReplayMemory, trajectData
+from models.active_mvnet import ActiveMVnet, SingleInput, MVInputs, batch_to_single_mvinput
+from env_data.shapenet_env import ShapeNetEnv
+from env_data.replay_memory import ReplayMemory, trajectData
 import psutil
 import gc
 import resource
@@ -50,7 +50,7 @@ flags.DEFINE_integer('gpu', 0, "GPU to use [default: GPU 0]")
 # task and control (yellow)
 flags.DEFINE_string('model_file', 'pcd_ae_1_lmdb', 'Model name')
 flags.DEFINE_string('cat_name', 'airplane', 'Category name')
-flags.DEFINE_string('category', '03001627', 'category Index')
+flags.DEFINE_string('category', '02958343', 'category Index')
 flags.DEFINE_string('train_filename_prefix', 'train', '')
 flags.DEFINE_string('val_filename_prefix', 'val', '')
 flags.DEFINE_string('test_filename_prefix', 'test', '')

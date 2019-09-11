@@ -58,7 +58,7 @@ class ShapeNetEnv():
             self.test_list = f.read().splitlines()
             np.random.shuffle(self.test_list)
         
-        self.data_dir = 'data/data_cache/blender_renderings/{}/res{}_{}_all/'.format(self.category,
+        self.data_dir = 'data/data_cache/blender_renderings/{}/res{}_{}/'.format(self.category,
             FLAGS.resolution, cat_name[self.category])
         if self.category == '1111':
             self.data_dir = '/projects/katefgroup/ziyan/blender_renderings/'

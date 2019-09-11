@@ -51,7 +51,7 @@ class ReplayMemory():
         self.max_episode_length = FLAGS.max_episode_length
         self.voxel_resolution = FLAGS.voxel_resolution
         self.resolution = FLAGS.resolution
-        self.data_dir = 'data/data_cache/blender_renderings/{}/res128_{}_all/'.format(self.FLAGS.category,
+        self.data_dir = 'data/data_cache/blender_renderings/{}/res128_{}/'.format(self.FLAGS.category,
             cat_name[self.FLAGS.category])
         if self.FLAGS.category == '1111':
             self.data_dir = '/projects/katefgroup/ziyan/blender_renderings/'
