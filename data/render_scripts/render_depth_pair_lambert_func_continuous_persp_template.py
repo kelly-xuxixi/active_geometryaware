@@ -225,7 +225,7 @@ R_extr_list = []
 #os.open(logfile, os.O_WRONLY)
 
 if CATEGORY == '02958343':
-    shape_file = "/home/ziyanw1/dataset/ShapeNetCore.v1/{0}/{1}/model.obj".format(CATEGORY,MODEL)
+    shape_file = "/home/ubuntu/data/Work/data/ShapeNetCore.v1/{0}/{1}/model.obj".format(CATEGORY,MODEL)
     lights_num = 20
     scene.world.light_settings.ao_factor = 0.05
 else:

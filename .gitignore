@@ -13,3 +13,5 @@ voxels
 *.npy
 *.nfs*
 log_agent_all
+
+.idea
