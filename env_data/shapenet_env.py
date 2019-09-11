@@ -37,6 +37,7 @@ cat_name = {
 azim_all = np.linspace(0, 360, 9)
 azim_all = azim_all[0:-1]
 azim_for_init = np.linspace(0, 360, 5)
+azim_for_init = azim_for_init[0:-1]
 elev_all = np.linspace(-30, 30, 5)
 elev_for_init = np.asarray([-15, 0, 15])
 
