@@ -44,7 +44,8 @@ class ShapeNetEnv():
         FLAGS.train_filename_prefix
         
         self.lists_dir = 'data/render_scripts/lists/{}_lists/'.format(self.category) 
-        with open(self.lists_dir+'{}_idx.txt'.format(FLAGS.train_filename_prefix), 'r') as f:
+        # with open(self.lists_dir+'{}_idx.txt'.format(FLAGS.train_filename_prefix), 'r') as f:
+        with open('data/render_scripts/lists/02958343_debug.list', 'r') as f:
             self.train_list = f.read().splitlines()
             if FLAGS.category == '1111':
                 np.random.shuffle(self.train_list)
