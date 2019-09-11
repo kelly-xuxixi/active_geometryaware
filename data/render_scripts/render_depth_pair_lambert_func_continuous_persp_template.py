@@ -278,7 +278,7 @@ rho = 2
 # azim_all = azim0 + np.random.normal(loc=0., scale=10., size=(VIEWS,))
 azim_all = np.linspace(0, 360, 9)
 azim_all = azim_all[0:-1]
-elev_all = np.linspace(-30, 30, 5)
+elev_all = np.linspace(10, 60, 6)
 
 # elev_all = elev0 + np.random.normal(loc=0., scale=10., size=(VIEWS,))
 # elev_all[0] = elev0
