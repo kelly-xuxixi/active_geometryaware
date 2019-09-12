@@ -147,11 +147,11 @@ class ReplayMemory():
 
     def read_vox(self, vox_name, transpose = False):
         vox_model = self.read_bv(vox_name, transpose) 
-        vox_factor = self.voxel_resolution * 1.0 / 128
-        #vox_model_zoom = ndimg.zoom(vox_model, vox_factor, order=0) # nearest neighbor interpolation
-        # vox_model_zoom = downsample(vox_model, int(1/vox_factor))
+        vox_factor = self.voxel_resolution * 1.0 / 64
+        vox_model_zoom = ndimg.zoom(vox_model, vox_factor, order=0) # nearest neighbor interpolation
+        vox_model_zoom = downsample(vox_model, int(1/vox_factor))
         # chenxi: delete downsample
-        return vox_model
+        return vox_model_zoom
 
     def read_png_to_uint8(self, azim, elev, model_id):
         img_name = 'RGB_{}_{}.png'.format(int(azim), int(elev))
