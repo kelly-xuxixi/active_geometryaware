@@ -96,7 +96,7 @@ flags.DEFINE_boolean('if_deconv', True, 'If add deconv output to generator aside
 flags.DEFINE_boolean('if_constantLr', True, 'If use constant lr instead of decaying one')
 flags.DEFINE_boolean('if_en_bn', True, 'If use batch normalization for the mesh decoder')
 flags.DEFINE_boolean('if_gen_bn', False, 'If use batch normalization for the mesh generator')
-flags.DEFINE_boolean('if_bn', True, 'If use batch normalization for the mesh decoder')
+flags.DEFINE_boolean('if_bn', False, 'If use batch normalization for the mesh decoder')
 flags.DEFINE_boolean('if_dqn_bn', True, 'If use batch normalization for the mesh decoder')
 flags.DEFINE_float('bn_decay', 0.95, 'Decay rate for batch normalization [default: 0.9]')
 flags.DEFINE_boolean("if_transform", False, "if use two transform layers")
