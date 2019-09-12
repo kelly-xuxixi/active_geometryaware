@@ -154,6 +154,13 @@ flags.DEFINE_boolean('debug_single', False, 'debug mode: using single model')
 flags.DEFINE_boolean('debug_mode', False, '')
 flags.DEFINE_boolean('GBL_thread', False, '')
 flags.DEFINE_boolean('pose_noise', False, '')
+
+flags.DEFINE_float('BN_INIT_DECAY', 0.5, '')
+flags.DEFINE_float('BN_DECAY_DECAY_RATE', 0.5, '')
+flags.DEFINE_float('BN_DECAY_DECAY_STEP', float(FLAGS.decay_step), '')
+flags.DEFINE_float('BN_DECAY_CLIP', 0.99, '')
+
+
 FLAGS = flags.FLAGS
 
 #POINTCLOUDSIZE = FLAGS.num_point
