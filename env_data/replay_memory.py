@@ -143,7 +143,6 @@ class ReplayMemory():
         data = np.float32(model)
         if transpose:
             data = np.transpose(data, (0,2,1))
-        print(data.shape)
         return data
 
     def read_vox(self, vox_name, transpose = False):
