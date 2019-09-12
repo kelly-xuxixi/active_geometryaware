@@ -410,7 +410,7 @@ class ReplayMemory():
 
             model_id = data_.model_id
             #chenxi
-            voxel_dir = '../data/shapenet/ShapeNetVox32/'
+            voxel_dir = 'voxels'
             voxel_name = os.path.join(voxel_dir, '{}/{}.mat'.format(self.FLAGS.category, model_id))
             if self.FLAGS.category == '1111':
                 category_, model_id_ = model_id.split('/')
