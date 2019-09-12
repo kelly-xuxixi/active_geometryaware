@@ -371,7 +371,7 @@ class ActiveMVnet(object):
             summ.histogram('unprojections', self.unproj_grid_batch)
 
         ## TODO: collapse vox feature and do inference using unet3d
-        with tf.device('/gpu:1'):
+        with tf.device('/gpu:0'):
             ## --------------- train -------------------
             
             ## [BS, EP, V, V, V, CH], channels should correspond with unet_3d
