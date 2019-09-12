@@ -139,7 +139,7 @@ class ReplayMemory():
         # with open(fn, 'rb') as f:
         #     model = binvox_rw.read_as_3d_array(f)
         # data = np.float32(model.data)
-        model = sio.loadmat('fffb1660a38af30ba4cf3601fb6b2442.mat')['Volume']
+        model = sio.loadmat(fn)['Volume']
         data = np.float(model)
         if transpose:
             data = np.transpose(data, (0,2,1))
