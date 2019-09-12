@@ -15,6 +15,7 @@ from models.active_mvnet import MVInputs, SingleInput, SingleInputFactory
 from threading import Thread
 from Queue import Queue
 from time import sleep
+import scipy.io as sio
 
 from utils.util import downsample
 from other import binvox_rw
@@ -134,9 +135,12 @@ class ReplayMemory():
         self.count += 1
 
     def read_bv(self, fn, transpose = True):
-        with open(fn, 'rb') as f:
-            model = binvox_rw.read_as_3d_array(f)
-        data = np.float32(model.data)
+        # chenxi
+        # with open(fn, 'rb') as f:
+        #     model = binvox_rw.read_as_3d_array(f)
+        # data = np.float32(model.data)
+        model = sio.loadmat('fffb1660a38af30ba4cf3601fb6b2442.mat')['Volume']
+        data = np.float(model)
         if transpose:
             data = np.transpose(data, (0,2,1))
         return data
@@ -407,7 +411,7 @@ class ReplayMemory():
             model_id = data_.model_id
             #chenxi
             voxel_dir = '../data/shapenet/ShapeNetVox32/'
-            voxel_name = os.path.join(voxel_dir, '{}/{}/model.binvox'.format(self.FLAGS.category, model_id))
+            voxel_name = os.path.join(voxel_dir, '{}/{}.mat'.format(self.FLAGS.category, model_id))
             if self.FLAGS.category == '1111':
                 category_, model_id_ = model_id.split('/')
                 voxel_name = os.path.join(voxel_dir, '{}/{}/model.binvox'.format(category_, model_id_))
@@ -417,8 +421,8 @@ class ReplayMemory():
 
             #this is the only categ for which we have seg data
             if self.FLAGS.use_segs and self.FLAGS.category == '3333': 
-                seg1_name = os.path.join(voxel_dir, '{}/{}/obj1.binvox'.format(self.FLAGS.category, model_id))
-                seg2_name = os.path.join(voxel_dir, '{}/{}/obj2.binvox'.format(self.FLAGS.category, model_id))
+                seg1_name = os.path.join(voxel_dir, '{}/{}.mat'.format(self.FLAGS.category, model_id))
+                seg2_name = os.path.join(voxel_dir, '{}/{}.mat'.format(self.FLAGS.category, model_id))
                 seg1 = self.read_vox(seg1_name)
                 seg2 = self.read_vox(seg2_name)
                 mvinputs.put_segs(seg1, seg2, batch_idx = b_idx)
