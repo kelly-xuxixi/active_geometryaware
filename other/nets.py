@@ -647,7 +647,7 @@ def unet_same(vox_feat, channels, FLAGS, trainable=True, if_bn=False, reuse=Fals
             ## heavy load
             print channels
 
-            net_up0 = slim.conv3d_transpose(net_up1_, channels, kernel_size=4, stride=2, padding='SAME', \
+            net_up0 = slim.conv3d_transpose(net_up1_, 16, kernel_size=4, stride=2, padding='SAME', \
                 scope='unet_deconv0')
             net_up0_ = tf.concat([net_up0, vox_feat], axis=-1)
             net_out_ = slim.conv3d(net_up0_, 1, kernel_size=3, stride=1, padding='SAME', \
