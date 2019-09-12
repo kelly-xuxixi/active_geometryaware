@@ -157,7 +157,7 @@ flags.DEFINE_boolean('pose_noise', False, '')
 
 flags.DEFINE_float('BN_INIT_DECAY', 0.5, '')
 flags.DEFINE_float('BN_DECAY_DECAY_RATE', 0.5, '')
-flags.DEFINE_float('BN_DECAY_DECAY_STEP', float(FLAGS.decay_step), '')
+flags.DEFINE_float('BN_DECAY_DECAY_STEP', float(flags.FLAGS.decay_step), '')
 flags.DEFINE_float('BN_DECAY_CLIP', 0.99, '')
 
 
