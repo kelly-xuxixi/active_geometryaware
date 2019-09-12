@@ -505,10 +505,10 @@ def evaluate_burnin(active_mv, test_episode_num, replay_mem, train_i, rollout_ob
         #    pred_idx = stop_idx[0, 0]
 
         model_id = rollout_obj.env.current_model
-        voxel_name = os.path.join('voxels', '{}/{}/model.binvox'.format(FLAGS.category, model_id))
+        voxel_name = os.path.join('voxels', '{}/{}.mat'.format(FLAGS.category, model_id))
         if FLAGS.category == '1111':
             category_, model_id_ = model_id.split('/')
-            voxel_name = os.path.join('voxels', '{}/{}/model.binvox'.format(category_, model_id_))        
+            voxel_name = os.path.join('voxels', '{}/{}.mat'.format(category_, model_id_))
         vox_gt = replay_mem.read_vox(voxel_name)
 
         if FLAGS.use_segs and FLAGS.category == '3333': #this is the only categ for which we have seg data
