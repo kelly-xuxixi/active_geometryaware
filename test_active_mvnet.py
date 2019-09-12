@@ -136,7 +136,7 @@ flags.DEFINE_integer("init_i_to", 1, "init i to")
 flags.DEFINE_integer("test_iter", 2, "init i to")
 flags.DEFINE_integer("test_episode_num", 2, "init i to")
 flags.DEFINE_boolean("save_test_results", True, "if init i from 0")
-flags.DEFINE_boolean("if_save_eval", False, "if save evaluation results")
+flags.DEFINE_boolean("if_save_eval", True, "if save evaluation results")
 flags.DEFINE_boolean("initial_dqn", False, "if initial dqn")
 # reinforcement learning
 flags.DEFINE_integer('mvnet_resolution', 224, 'image resolution for mvnet')
