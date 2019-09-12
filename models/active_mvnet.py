@@ -1308,18 +1308,18 @@ class ActiveMVnet(object):
         stuff = self.sess.run([self.action_prob_test], feed_dict=feed_dict)
         action_prob = np.squeeze(np.copy(stuff[0]))[idx]
         if is_training:  ## sampling during training
-            print(action_prob)
+            # print(action_prob)
             a_response = np.random.choice(action_prob, p=action_prob)
 
             a_idx = np.argmax(action_prob == a_response)
-            print(a_idx)
+            # print(a_idx)
         else:           ## testing
-            print(action_prob)
+            # print(action_prob)
             a_response = np.amax(action_prob)
             a_response = np.random.choice(action_prob, p=action_prob)
 
             a_idx = np.argmax(action_prob == a_response)
-            print(a_idx)
+            # print(a_idx)
         return a_idx
 
     def predict_vox_list(self, mvnet_input, is_training = False):

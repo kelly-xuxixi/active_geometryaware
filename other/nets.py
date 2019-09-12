@@ -230,7 +230,7 @@ def voxel_net(inputs, aux = None, bn = True, outsize = 128, built_in_transform =
             pose_ = tf.reshape(pose_, (const.BS, const.V, 1, 1))
             rot_mat = tf.reduce_sum(rot_mats * pose_, axis = 1)
 
-            print rot_mat
+            # print rot_mat
             
             #do some things here.. predict weights for each rotmat
             
