@@ -50,7 +50,7 @@ flags.DEFINE_integer('gpu', 0, "GPU to use [default: GPU 0]")
 # task and control (yellow)
 flags.DEFINE_string('model_file', 'pcd_ae_1_lmdb', 'Model name')
 flags.DEFINE_string('cat_name', 'airplane', 'Category name')
-flags.DEFINE_string('category', '03001627', 'category Index')
+flags.DEFINE_string('category', '02958343', 'category Index')
 flags.DEFINE_string('train_filename_prefix', 'train', '')
 flags.DEFINE_string('val_filename_prefix', 'val', '')
 flags.DEFINE_string('test_filename_prefix', 'test', '')
@@ -85,7 +85,7 @@ flags.DEFINE_integer('max_iter', 1000000, 'Decay step for lr decay [default: 200
 # arch (magenta)
 flags.DEFINE_string('network_name', 'ae', 'Name for network architecture used for rgb to depth')
 
-flags.DEFINE_string('unet_name', 'U_VALID', '')
+flags.DEFINE_string('unet_name', 'U_SAME', '')#chenxi
 #options: U_SAME, OUTLINE
 flags.DEFINE_string('agg_name', 'GRU', '')
 #options: GRU, OUTLINE
