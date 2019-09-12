@@ -118,10 +118,10 @@ class ShapeNetEnv():
                 self.current_model = self.test_list[t_idx]
             if test_idx >= self.test_len:
                 self.current_azim = np.mod(self.test_azims[t_idx]+80, 360)
-                self.current_elev = np.mod(self.test_elevs[t_idx], 360)
+                self.current_elev = self.test_elevs[t_idx]
             else:
                 self.current_azim = np.mod(self.test_azims[t_idx], 360)
-                self.current_elev = np.mod(self.test_elevs[t_idx], 360)
+                self.current_elev = self.test_elevs[t_idx]
             #if test_idx >= self.test_len:
             #    self.current_azim += 80
             #    self.current_azim = np.mod(self.current_azim, 360)
