@@ -66,4 +66,4 @@ if __name__=="__main__":
         "04530566": "vessel",
     }
     for cat_num in d.keys():
-        run(cat_num, "%s.list".format(cat_num), d[cat_num])
+        run(cat_num, "{}.list".format(cat_num), d[cat_num])
