@@ -40,7 +40,7 @@ def run(CATEGORY, MODLE_LIST, NAME):
         base_path = '../data_cache/' + 'blender_renderings/'
         save_path = base_path + "{2}/res{1}_{3}/{0}".format(MODEL,RESOLUTION,CATEGORY,NAME)
         if os.path.exists(save_path):
-            print 'skiping {} {}'.format(CATEGORY, MODEL)
+            print('skiping {} {}'.format(CATEGORY, MODEL))
             continue
         command = 'nice -n 10 blender %s -b -P render_depth_pair_lambert_func_continuous_persp_template.py -- %s %s %s %d %d' \
                   % (BLENDER_FILE, CATEGORY, MODEL, NAME, RESOLUTION, model_index)
